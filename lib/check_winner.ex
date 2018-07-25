@@ -1,4 +1,11 @@
 defmodule CheckWinner do
+  def other_player('x'), do: 'o'
+  def other_player('o'), do: 'x'
+
+  def player_lost?(board, player) do
+    player_won?(board, other_player(player))
+  end
+
   def player_won?([[a, b, c], _, _], player) when a == player and b == player and c == player do
     true
   end
